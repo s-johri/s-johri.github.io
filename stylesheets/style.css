@@ -9,22 +9,29 @@ body {
     background: #133444;
     font-family: PixelFont; 
     text-align: center;
+    font-size: max(2vw, 2vh);
     color: white;
-    font-size: 3vw;
     overflow: hidden;
+    margin-top: 10vh;
 }
 
 .Planet{
-    width: 25vw;
-    height: 25vw;
+    width: max(25vw, 25vh);
+    height: max(25vw, 25vh);
     overflow: hidden;
-    margin: 35vh 50vw;
-    transform: translate(-50%, -50%);
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    margin: auto;
 }  
 
 .Planet_spritesheet {
     animation: moveSpriteSheet 10s steps(100) infinite;
-    width: 2500vw;
+    width: max(2500vw, 2500vh);
 }
 
 /* Utility classes */
