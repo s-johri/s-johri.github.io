@@ -10,28 +10,30 @@ body {
     font-family: PixelFont; 
     text-align: center;
     font-size: max(2vw, 2vh);
+    text-shadow: 5px 5px 0 black;
     color: white;
     overflow: hidden;
     margin-top: 10vh;
 }
 
 .Planet{
-    width: max(25vw, 25vh);
-    height: max(25vw, 25vh);
+    width: max(30vw, 30vh);
+    height: max(30vw, 30vh);
     overflow: hidden;
-
+    z-index: -1;
     position: absolute;
     top:0;
     bottom: 0;
     left: 0;
     right: 0;
+    opacity: 0.75;
     
     margin: auto;
 }  
 
 .Planet_spritesheet {
     animation: moveSpriteSheet 10s steps(100) infinite;
-    width: max(2500vw, 2500vh);
+    width: max(3000vw, 3000vh);
 }
 
 /* Utility classes */
