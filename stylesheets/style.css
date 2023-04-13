@@ -1,0 +1,45 @@
+/* Fonts */
+@font-face {
+    font-family: PixelFont;
+    src: url(/fonts/font.ttf);
+}
+
+/* Classes */
+body {
+    background: #133444;
+    font-family: PixelFont; 
+    text-align: center;
+    color: white;
+    font-size: 3vw;
+}
+
+.Planet{
+    width: 25vw;
+    height: 25vw;
+    overflow: hidden;
+    margin: auto auto;
+    /* transform: translate(-50%, -50%); */
+}  
+
+.Planet_spritesheet {
+    animation: moveSpriteSheet 10s steps(100) infinite;
+    width: 2500vw;
+}
+
+/* Utility classes */
+
+.pixelart {
+    image-rendering: pixelated;
+}
+
+/* Animation keyframes */
+
+@keyframes moveSpriteSheet {
+    from {
+        transform: translate3d(0px, 0, 0)
+    }
+
+    to {
+        transform: translate3d(-100%, 0, 0)
+    }
+}
