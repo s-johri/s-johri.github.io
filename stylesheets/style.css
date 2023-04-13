@@ -11,14 +11,15 @@ body {
     text-align: center;
     color: white;
     font-size: 3vw;
+    overflow: hidden;
 }
 
 .Planet{
     width: 25vw;
     height: 25vw;
     overflow: hidden;
-    margin: auto auto;
-    /* transform: translate(-50%, -50%); */
+    margin: 35vh 50vw;
+    transform: translate(-50%, -50%);
 }  
 
 .Planet_spritesheet {
