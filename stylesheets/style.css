@@ -4,6 +4,11 @@
     src: url(/fonts/font.ttf);
 }
 
+/* IDs */
+#planet {
+    cursor: pointer;
+}
+
 /* Classes */
 body {
     background: #133444;
