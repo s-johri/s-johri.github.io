@@ -17,7 +17,7 @@ body {
     font-size: max(2vw, 2vh);
     text-shadow: 5px 5px 0 black;
     color: white;
-    overflow: hidden;
+    overflow: auto;
     margin-top: 10vh;
 }
 
@@ -25,14 +25,13 @@ body {
     width: max(30vw, 30vh);
     height: max(30vw, 30vh);
     overflow: hidden;
-    z-index: -1;
-    position: absolute;
+    position: relative;
     top:0;
     bottom: 0;
     left: 0;
     right: 0;
     opacity: 0.75;
-    
+
     margin: auto;
 }  
 

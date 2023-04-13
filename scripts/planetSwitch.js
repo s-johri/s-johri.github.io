@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var src = "/images/planet" + next + '.png';
         planet.src = src;
 
-    });
+    }, false);
 
     planet.addEventListener('touchstart', function(event) {
         // Prevent the default behavior of touch event (e.g., scrolling)
@@ -31,5 +31,5 @@ document.addEventListener('DOMContentLoaded', function() {
         var src = "/images/planet" + next + '.png';
         planet.src = src;
 
-    });
+    }, false);
 });
