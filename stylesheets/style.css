@@ -25,12 +25,13 @@ body {
     width: max(30vw, 30vh);
     height: max(30vw, 30vh);
     overflow: hidden;
-    position: relative;
+    position: absolute;
     top:0;
     bottom: 0;
     left: 0;
     right: 0;
     opacity: 0.75;
+    z-index: -1;
 
     margin: auto;
 }  
@@ -38,6 +39,47 @@ body {
 .Planet_spritesheet {
     animation: moveSpriteSheet 10s steps(100) infinite;
     width: max(3000vw, 3000vh);
+}
+
+.UI {
+    width: max(33vw, 33vh);
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+
+    top:80%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.element {
+    margin-right: 1vw;
+}
+
+.arrow_key{
+    width: max(5vw, 5vh);
+    height: max(5vw, 5vh);
+    overflow: hidden;
+    margin: auto;
+}
+
+.space_key{
+    width: max(20vw, 20vh);
+    height: max(5vw, 5vh);
+    overflow: hidden;
+    margin: auto;
+}
+
+.arrow_spritesheet{
+    animation: moveSpriteSheet 1s steps(2) infinite;
+    width: max(10vw, 10vh);
+}
+
+.space_spritesheet{
+    animation: moveSpriteSheet 1s steps(2) infinite;
+    width: max(40vw, 40vh);
 }
 
 /* Utility classes */
