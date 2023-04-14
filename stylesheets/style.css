@@ -73,12 +73,10 @@ body {
 }
 
 .arrow_spritesheet{
-    animation: moveSpriteSheet 1s steps(2) infinite;
     width: max(10vw, 10vh);
 }
 
 .space_spritesheet{
-    animation: moveSpriteSheet 1s steps(2) infinite;
     width: max(40vw, 40vh);
 }
 
