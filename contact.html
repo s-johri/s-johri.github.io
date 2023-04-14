@@ -78,11 +78,10 @@
                 emailjs.sendForm('service_1posjan', 'template_cx96ppw', this)
                     .then(function() {
                         console.log('SUCCESS!');
+                        window.location.href = '/';
                     }, function(error) {
                         console.log('FAILED...', error);
                     });
-                
-                window.location.href = '/'
             });
         }
     </script>
