@@ -30,7 +30,6 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    opacity: 0.75;
     z-index: -1;
 
     margin: auto;
@@ -39,6 +38,16 @@ body {
 .Planet_spritesheet {
     animation: moveSpriteSheet 10s steps(100) infinite;
     width: max(3000vw, 3000vh);
+    opacity: 0.75;
+}
+
+#overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    text-align: center;
 }
 
 .UI {

@@ -1,5 +1,6 @@
 // To avoid same planet on click
 var page = 1;
+var text = ['About Me', 'Resume', 'Contact'];
 
 document.addEventListener('DOMContentLoaded', function() {
     var planet = document.getElementById('planetImage');
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             var src = "/images/planet" + page + '.png';
             planet.src = src;
+            document.getElementById('overlay').textContent = text[page-1];
 
             leftArrow.style.animationName = 'moveSpriteSheet';
             leftArrow.style.animationDuration = '0.1s';
@@ -31,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             var src = "/images/planet" + page + '.png';
             planet.src = src;
+            document.getElementById('overlay').textContent = text[page-1];
 
             rightArrow.style.animationName = 'moveSpriteSheet';
             rightArrow.style.animationDuration = '0.1s';
@@ -62,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var src = "/images/planet" + page + '.png';
         planet.src = src;
+        document.getElementById('overlay').textContent = text[page-1];
 
         leftArrow.style.animationName = 'moveSpriteSheet';
         leftArrow.style.animationDuration = '0.1s';
@@ -81,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var src = "/images/planet" + page + '.png';
         planet.src = src;
+        document.getElementById('overlay').textContent = text[page-1];
 
         rightArrow.style.animationName = 'moveSpriteSheet';
         rightArrow.style.animationDuration = '0.1s';
