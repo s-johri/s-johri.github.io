@@ -61,6 +61,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     window.location.href = "about.html";
                 }, 150);
             }
+            else if (page === 2){
+                setTimeout(function(){
+                    window.open('/resources/SJohri_Resume.pdf', '_blank');
+                }, 150);
+            }
+            else if (page === 3){
+                setTimeout(function(){
+                    window.location.href = 'contact.html';
+                }, 150);
+            }
         }
 
     }, false);
@@ -119,6 +129,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (page === 1){
             setTimeout(function() {
                 window.location.href = "about.html";
+            }, 150);
+        }
+        else if (page === 2){
+            setTimeout(function(){
+                window.open('/resources/SJohri_Resume.pdf', '_blank');
+            }, 150);
+        }
+        else {
+            setTimeout(function(){
+                window.location.href = 'contact.html';
             }, 150);
         }
     }, false);

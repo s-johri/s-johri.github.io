@@ -1,0 +1,111 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+        @font-face {
+        font-family: PixelFont;
+        src: url(/fonts/font.ttf);
+        }
+    
+        body {
+            background: #133444;
+            font-family: PixelFont; 
+            text-align: justify;
+            font-size: max(2vw, 2vh);
+            text-shadow: 5px 5px 0 black;
+            color: white;
+            overflow: auto;
+            margin-top: 10vh;
+            margin-left: 5vw;
+            margin-right: 5vw;
+        }
+    
+        .UI {
+            width: max(15vw, 15vh);
+            margin: auto;
+            position: fixed;
+    
+            top: 80%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+    
+            image-rendering: pixelated;
+        }
+    
+        .UI img {
+            width: max(15vw, 15vh);
+            height: auto;
+        }
+
+        form {
+            max-width: 80vw; 
+            margin: 0 auto; 
+        }
+
+        label, input, textarea {
+            display: block;
+            width: 100%; 
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            height: 30vh;
+        }
+
+        input[type="submit"] {
+            width: auto;
+            height: auto;
+            margin-top: 10px; 
+            font-family: PixelFont;
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('-5aeGxWK-uJ8-Rn4d');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('template_cx96ppw').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('service_1posjan', 'template_cx96ppw', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+                
+                window.location.href = '/'
+            });
+        }
+    </script>
+</head>
+<body>
+    <form id="template_cx96ppw">
+        <input type="hidden" name="contact_number">
+        <label>Name</label>
+        <input type="text" name="user_name">
+        <label>Email</label>
+        <input type="email" name="user_email">
+        <label>Message</label>
+        <textarea name="message"></textarea>
+        <input type="submit" value="Send">
+    </form>
+    <div class="UI">
+        <img id="backspaceKey" src="/images/BACKSPACEALTERNATIVE.png" alt="BACK">
+    </div>
+
+    <script>
+        document.getElementById('backspaceKey').addEventListener('click', function(){
+            window.location.href = '/';
+        }, false);
+    </script>
+</body>
+</html>
