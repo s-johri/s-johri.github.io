@@ -55,6 +55,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 spaceKey.style.animationDuration = '';
                 spaceKey.style.animationTimingFunction = '';
             });
+
+            if (page === 1){
+                setTimeout(function() {
+                    window.location.href = "about.html";
+                }, 150);
+            }
         }
 
     }, false);
@@ -109,5 +115,11 @@ document.addEventListener('DOMContentLoaded', function() {
             spaceKey.style.animationDuration = '';
             spaceKey.style.animationTimingFunction = '';
         });
+
+        if (page === 1){
+            setTimeout(function() {
+                window.location.href = "about.html";
+            }, 150);
+        }
     }, false);
 });

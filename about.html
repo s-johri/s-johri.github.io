@@ -1,0 +1,133 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+</head>
+<style>
+    @font-face {
+    font-family: PixelFont;
+    src: url(/fonts/font.ttf);
+    }
+
+    body {
+        background: #133444;
+        font-family: PixelFont; 
+        text-align: justify;
+        font-size: max(2vw, 2vh);
+        text-shadow: 5px 5px 0 black;
+        color: white;
+        overflow: auto;
+        margin-top: 10vh;
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+    /* CSS for the blinking cursor */
+    .cursor {
+        display: inline-block;
+        width: 0.3em;
+        height: 1em;
+        background-color: #000;
+        animation: blink 0.7s infinite;
+    }
+    
+    /* CSS for the text animation */
+    .text-animation {
+        overflow: hidden;
+        white-space: nowrap;
+        animation: typing 2s steps(40, end);
+    }
+
+    .UI {
+        width: max(20vw, 20vh);
+        margin: auto;
+        position: fixed;
+
+        top: 80%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        image-rendering: pixelated;
+    }
+
+    .UI img {
+        width: max(20vw, 20vh);
+        height: auto;
+    }
+    
+    /* Keyframes for the typing animation */
+    @keyframes typing {
+        from {
+        width: 0;
+        }
+        to {
+        width: 100%;
+        }
+    }
+    
+    /* Keyframes for the blinking cursor */
+    @keyframes blink {
+        0%, 100% {
+        opacity: 1;
+        }
+        50% {
+        opacity: 0;
+        }
+    }
+</style>
+<body>
+    <h4 id="about"></h4>
+    <div class="UI">
+        <img id="backspaceKey" src="/images/BACKSPACEALTERNATIVE.png" alt="BACK">
+    </div>
+
+    <script>
+
+        document.getElementById('backspaceKey').addEventListener('click', function(){
+            window.location.href = 'index.html';
+        }, false);
+
+        document.addEventListener('keydown', function(event){
+            event.preventDefault();
+            if (event.key === 'Backspace'){
+                window.location.href = 'index.html';
+            }
+        }, false);
+
+        let text = "Hi there, thanks for stopping by! I am Saurabh Johri\n\nI'm a graduate with a Master's degree in Artificial Intelligence and a passion for coding. I've had the chance to work on various projects during my time in school and internships, where I honed my skills acquired during my graduate study. I'm detail-oriented, proactive, and love collaborating with others.\n\nI am currently studying game development in Unity and LOVE2D as a hobby. I am in very early stages of making a 2D platformer game of my own. This website is inspired by the aesthetic of retro games and making a portfolio also gave me an excuse to learn some front-end development.\n\nI'm all about continuous learning and always looking for opportunities to grow and make a meaningful impact. Let's connect and see how I can contribute to your team!";
+        let index = 0;
+        let speed = 20;
+        let about = document.getElementById('about');
+
+        function typeWriter() {
+        if (index < text.length) {
+            if (text.charAt(index) === '\n') {
+                about.innerHTML += '<br>'; 
+            } else {
+                about.innerHTML += text.charAt(index);
+            }
+            index++;
+            setTimeout(typeWriter, speed);
+        } else {
+            appendCursor(); // Append cursor after text is finished
+            return; // Stop the function
+        }
+        }
+
+        function appendCursor() {
+            let cursor = document.createElement('span');
+            cursor.textContent = "|";
+            about.appendChild(cursor);
+            blinkCursor(cursor); // Start blinking cursor after it's appended
+        }
+
+        function blinkCursor(cursor) {
+            cursor.style.visibility = (cursor.style.visibility === 'visible') ? 'hidden' : 'visible';
+            setTimeout(function() { blinkCursor(cursor) }, 500); // Change blinking speed here
+        }
+
+        typeWriter();
+    </script>
+</body>
+</html>
