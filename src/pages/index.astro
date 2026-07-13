@@ -16,18 +16,63 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 	<body>
 		<header>
 			<h1>Saurabh Johri</h1>
+			<p>
+				<a href="/resume.pdf">Resume (PDF)</a> &middot;
+				<a href="https://github.com/s-johri">GitHub</a> &middot;
+				<a href="https://linkedin.com/in/saurabh-j-49bb87ba">LinkedIn</a>
+			</p>
 		</header>
 
 		<section id="about">
 			<h2>About</h2>
-			<!-- PLACEHOLDER: About copy goes here in Task 9. -->
-			<p>About section placeholder — filled in during Task 9.</p>
+			<p>
+				Software engineer with ~2 years at Code Argo, building education-platform software for
+				BITS Pilani WILP and BITS Pilani Digital that serves roughly 75,000 students. Full-stack
+				across Python/Django and Go, spanning LMS features, certificate-generation services, and
+				backend proxies. I hold an MS in Artificial Intelligence from Boston University, and I like
+				owning systems end-to-end &mdash; from frontend UX down to the Go services underneath &mdash;
+				and shipping features that hold up at real scale.
+			</p>
 		</section>
 
 		<section id="experience">
 			<h2>Experience</h2>
-			<!-- PLACEHOLDER: Experience entries go here in Task 9. -->
-			<p>Experience section placeholder — filled in during Task 9.</p>
+			<article>
+				<h3>Software Engineer, Code Argo</h3>
+				<p><em>Vendor engineering team for BITS Pilani WILP and BITS Pilani Digital, 5-person team &middot; Remote &middot; May 2024 &ndash; Present</em></p>
+				<ul>
+					<li>
+						Lead ongoing feature development on <strong>elearn</strong>, a Django LMS/WILP platform
+						serving <strong>~75,000 active students</strong>; owned frontend development end-to-end
+						early in the engagement. Built an async/streaming CSV export for large MGPA and
+						student-evaluation datasets, scaling the export limit to <strong>2.5M rows</strong>, and
+						shipped superuser impersonation (&ldquo;Log in as&rdquo;) with full audit logging.
+					</li>
+					<li>
+						Maintain and extend <strong>elearn-api-proxy</strong> (Go), a certificate/transcript
+						generation service pulling program, degree, and division data from an ERP
+						student-status API &mdash; <strong>52,000+ certificates and transcripts generated</strong>
+						to date for elearn's student body.
+					</li>
+					<li>
+						Built <strong>attendance-sync</strong> (Go), a daily cron service parsing
+						course-meeting attendance dumps from a Microsoft API and forwarding organizer
+						attendance and role data into elearn &mdash;
+						<strong>1.3M+ attendance records processed</strong> to date.
+					</li>
+					<li>
+						Built <strong>discordbot-go</strong>, a Discord/Google account-linking gate bot
+						serving a community of <strong>~250 members</strong>; implemented a
+						reconciliation/self-healing sweep to correct membership drift and migrated identity
+						and cohort-channel storage from local JSON to PostgreSQL, then to Valkey/Redis.
+					</li>
+					<li>
+						Co-built <strong>argo-api-proxy</strong> (Go/Fiber) with API-key request
+						authentication, config-driven routing, and hot config reload; replaced in-memory
+						query buffering with streamed response execution.
+					</li>
+				</ul>
+			</article>
 		</section>
 
 		<section id="projects">
