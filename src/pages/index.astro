@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Saurabh Johri</title>
+	</head>
+	<body>
+		<header>
+			<h1>Saurabh Johri</h1>
+		</header>
+
+		<section id="about">
+			<h2>About</h2>
+			<!-- PLACEHOLDER: About copy goes here in Task 9. -->
+			<p>About section placeholder — filled in during Task 9.</p>
+		</section>
+
+		<section id="experience">
+			<h2>Experience</h2>
+			<!-- PLACEHOLDER: Experience entries go here in Task 9. -->
+			<p>Experience section placeholder — filled in during Task 9.</p>
+		</section>
+
+		<section id="projects">
+			<h2>Projects</h2>
+			<ul>
+				{projects.map((project) => (
+					<li>
+						<a href={`/projects/${project.id}`}>{project.data.title}</a>
+						<p>{project.data.summary}</p>
+					</li>
+				))}
+			</ul>
+		</section>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+---
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+	const projects = await getCollection('projects');
+	return projects.map((project) => ({
+		params: { slug: project.id },
+		props: { project },
+	}));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{project.data.title} — Saurabh Johri</title>
+	</head>
+	<body>
+		<header>
+			<a href="/">&larr; Back</a>
+		</header>
+		<article>
+			<h1>{project.data.title}</h1>
+			<p>{project.data.summary}</p>
+			<ul>
+				{project.data.tech.map((t) => <li>{t}</li>)}
+			</ul>
+			<p>Kind: {project.data.kind}</p>
+			{project.data.repo && <p><a href={project.data.repo}>Repository</a></p>}
+			<Content />
+		</article>
+	</body>
+</html>
