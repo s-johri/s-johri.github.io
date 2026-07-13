@@ -1,6 +1,6 @@
 ---
 title: 'elearn-api-proxy: Certificate & Transcript Generation at Scale'
-summary: 'A dedicated Go service generating transcripts, certificates, and grade sheets for a 180,000-user LMS, with 52,000+ documents generated to date.'
+summary: 'A dedicated Go service generating transcripts, certificates, and grade sheets for a 180,000-user student portal, with 52,000+ documents generated to date.'
 tech: ['Go', 'REST APIs', 'PDF generation']
 kind: 'case-study'
 order: 2
@@ -30,7 +30,7 @@ I kept generation as a standalone Go service, decoupled from the Django platform
 shared data-fetch layer over the ERP API and per-document-type rendering (with its own bundled
 fonts, CourierPrime and Roboto Bold, for consistent output). That boundary lets a formatting fix for
 one certificate ship on its own schedule, independent of the other document types and of the main
-LMS release cycle.
+elearn release cycle.
 
 ## Outcome
 

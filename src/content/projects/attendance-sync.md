@@ -1,6 +1,6 @@
 ---
 title: 'attendance-sync: Daily Attendance Ingestion at 1.3M+ Records'
-summary: 'A Go cron service reconciling merged-course meeting attendance from an external API into a Django LMS, with 1.3M+ records processed to date.'
+summary: 'A Go cron service reconciling merged-course meeting attendance from an external API into a Django student portal, with 1.3M+ records processed to date.'
 tech: ['Go', 'Cron', 'REST APIs']
 kind: 'case-study'
 order: 3
@@ -27,7 +27,7 @@ grew across three iterations over close to a year.
 ## Architecture decision
 
 I built it as a standalone Go service rather than folding ingestion into the Django app, keeping the
-external-API parsing and merged-course reconciliation out of the LMS codebase. I extended its output
+external-API parsing and merged-course reconciliation out of the portal codebase. I extended its output
 contract with an organizer-role field so elearn could distinguish organizer attendance from attendee
 attendance without re-deriving it downstream, and coordinated the matching model changes on the
 elearn side.
