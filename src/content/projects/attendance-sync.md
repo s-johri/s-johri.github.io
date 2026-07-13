@@ -21,8 +21,8 @@ daily cron job and was built and extended across three tickets over close to a y
 - elearn needed a role indicator alongside raw attendance to distinguish meeting organizers from
   attendees, which meant coordinating a schema and consumption change on the receiving Django side
   in lockstep with this service's output.
-- The job runs unattended overnight — failures needed to be safe and idempotent rather than
-  silently dropping records or double-counting them on a retry.
+- The job runs unattended on a daily schedule — failures had to be visible and recoverable
+  rather than silently dropping records.
 
 ## Architecture decision
 

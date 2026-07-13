@@ -45,6 +45,6 @@ traceability.
 
 The streaming export now handles datasets up to 2.5M rows that the previous in-memory approach
 couldn't reliably serve, and it shipped without disrupting the parallel feature stream. The
-impersonation feature is in daily use by support staff, with every session captured in the audit
-log. Both are part of the ongoing feature ownership I've taken on for elearn since moving off
-frontend-only work.
+impersonation feature gives support staff a traceable way to debug on a student's behalf, with
+every session captured in the audit log. Both are part of the ongoing feature ownership I've taken
+on for elearn since moving off frontend-only work.
