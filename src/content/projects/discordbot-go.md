@@ -9,7 +9,7 @@ order: 5
 
 discordbot-go gates access to a Discord server behind a Discord-and-Google account-linking flow,
 serving a real community of roughly 250 members. It's a public mirror of engineering work I do
-through Code Argo — see the Experience section for the client-facing context.
+through Code Argo; see the Experience section for the client-facing context.
 
 Highlights: a reconciliation/self-healing sweep that detects and corrects membership drift instead
 of letting it silently accumulate; a storage migration for identity and cohort-channel data, first

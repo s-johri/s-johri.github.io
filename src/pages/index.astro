@@ -19,11 +19,11 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 		<h2>About</h2>
 		<p>
 			Software engineer with ~2 years at Code Argo, building education-platform software for
-			the BITS Pilani ecosystem that serves roughly 75,000 students. Full-stack
+			the BITS Pilani ecosystem that serves around 180,000 users. Full-stack
 			across Python/Django and Go, spanning LMS features, certificate-generation services, and
 			backend proxies. I hold an MS in Artificial Intelligence from Boston University, and I like
-			owning systems end-to-end &mdash; from frontend UX down to the Go services underneath &mdash;
-			and shipping features that hold up at real scale.
+			owning systems end-to-end, from frontend UX down to the Go services underneath, and
+			shipping features that hold up at real scale.
 		</p>
 	</section>
 
@@ -31,11 +31,11 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 		<h2>Experience</h2>
 		<article>
 			<h3>Software Engineer, Code Argo</h3>
-			<p class="muted"><em>Vendor engineering team for the BITS Pilani ecosystem, 5-person team &middot; Remote &middot; May 2024 &ndash; Present</em></p>
+			<p class="muted"><em>Vendor engineering team for the BITS Pilani ecosystem &middot; Remote &middot; May 2024 &ndash; Present</em></p>
 			<ul>
 				<li>
-					Lead ongoing feature development on <strong>elearn</strong>, a Django LMS platform
-					serving <strong>~75,000 active students</strong>; owned frontend development end-to-end
+					Lead ongoing feature development on <strong>elearn</strong>, a Django LMS platform with
+					<strong>~180,000 total users</strong> (~75,000 active students); owned frontend development end-to-end
 					early in the engagement. Built an async/streaming CSV export for large MGPA and
 					student-evaluation datasets, scaling the export limit to <strong>2.5M rows</strong>, and
 					shipped superuser impersonation (&ldquo;Log in as&rdquo;) with full audit logging.
@@ -43,13 +43,13 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 				<li>
 					Maintain and extend <strong>elearn-api-proxy</strong> (Go), a certificate/transcript
 					generation service pulling program, degree, and division data from an ERP
-					student-status API &mdash; <strong>52,000+ certificates and transcripts generated</strong>
+					student-status API, with <strong>52,000+ certificates and transcripts generated</strong>
 					to date for elearn's student body.
 				</li>
 				<li>
 					Built <strong>attendance-sync</strong> (Go), a daily cron service parsing
 					course-meeting attendance dumps from a Microsoft API and forwarding organizer
-					attendance and role data into elearn &mdash;
+					attendance and role data into elearn, with
 					<strong>1.3M+ attendance records processed</strong> to date.
 				</li>
 				<li>
