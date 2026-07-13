@@ -15,7 +15,7 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 		</p>
 	</header>
 
-	<section id="about">
+	<section id="about" class="reveal">
 		<h2>About</h2>
 		<p>
 			Software engineer with an MS in Artificial Intelligence from Boston University and ~2 years
@@ -27,7 +27,7 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 		</p>
 	</section>
 
-	<section id="experience">
+	<section id="experience" class="reveal">
 		<h2>Experience</h2>
 		<article>
 			<h3>Software Engineer, Code Argo</h3>
@@ -67,7 +67,7 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 		</article>
 	</section>
 
-	<section id="projects">
+	<section id="projects" class="reveal">
 		<h2>Projects</h2>
 		<ul class="project-list">
 			{projects.map((project) => (

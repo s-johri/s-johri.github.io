@@ -15,11 +15,34 @@ const { title, description = 'Saurabh Johri, software engineer. Django & Go on e
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<title>{title}</title>
+		{/* Set a .js flag before paint so the reveal layer only hides content when JS is present.
+		    No JS (or class never added) => content renders fully visible, never stuck at opacity 0. */}
+		<script is:inline>document.documentElement.classList.add('js');</script>
 	</head>
 	<body>
 		<div class="page">
 			<slot />
 		</div>
+		<script>
+			const els = Array.from(document.querySelectorAll('.reveal'));
+			const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			const show = (el) => el.classList.add('is-visible');
+			if (reduce || !('IntersectionObserver' in window)) {
+				els.forEach(show);
+			} else {
+				const io = new IntersectionObserver((entries) => {
+					for (const e of entries) {
+						if (e.isIntersecting) {
+							show(e.target);
+							io.unobserve(e.target);
+						}
+					}
+				}, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+				els.forEach((el) => io.observe(el));
+				// Failsafe: never leave content hidden if the observer misbehaves.
+				setTimeout(() => els.forEach(show), 2500);
+			}
+		</script>
 	</body>
 </html>
 
@@ -151,5 +174,29 @@ const { title, description = 'Saurabh Johri, software engineer. Django & Go on e
 		border-radius: 999px;
 		padding: 0.1rem 0.6rem;
 		vertical-align: middle;
+	}
+
+	/* Motion layer. The hidden pre-reveal state is scoped to html.js AND
+	   prefers-reduced-motion: no-preference, so no-JS and reduced-motion
+	   viewers always see fully-painted, instant content. */
+	@media (prefers-reduced-motion: no-preference) {
+		html.js .reveal {
+			opacity: 0;
+			transform: translateY(12px);
+			transition: opacity 0.5s ease, transform 0.5s ease;
+			transition-delay: var(--reveal-delay, 0ms);
+			will-change: opacity, transform;
+		}
+		html.js .reveal.is-visible {
+			opacity: 1;
+			transform: none;
+		}
+	}
+	.project-list li a[href^="/projects/"] {
+		display: inline-block;
+		transition: transform 0.18s ease;
+	}
+	.project-list li:hover a[href^="/projects/"] {
+		transform: translateY(-1px);
 	}
 </style>
