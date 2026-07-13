@@ -8,43 +8,37 @@ order: 1
 
 ## Context
 
-elearn is Code Argo's Django LMS platform, built for the BITS Pilani ecosystem and still under active
-development after 17+ months. It's the largest and longest-running codebase I work on, and it
-holds around 180,000 total users, roughly 75,000 of them active students. Another engineer laid the project's
-foundation and still contributes significantly; I owned frontend development end-to-end early in
-the engagement, and I'm now the lead engineer for new features, improvements, and fixes as they
-come up.
+elearn is Code Argo's Django LMS for the BITS Pilani ecosystem, and the largest, longest-running
+codebase I work on: roughly 180,000 total users, about 75,000 of them active students, under
+continuous development for over a year. Another engineer laid the foundation and remains a major
+contributor; I owned frontend development end to end early on, and now lead new features,
+improvements, and fixes.
 
-One recurring operational need was exporting MGPA and student-evaluation datasets to CSV for
-downstream reporting. As the student body and course catalog grew, that export path became a
-scaling problem.
+Exporting MGPA and student-evaluation datasets to CSV is a routine reporting need. As enrollment
+and the course catalog grew, that export path stopped keeping up.
 
 ## Constraints
 
-- The export had to work across an entire cohort/semester's worth of evaluation data at once;
-  dataset size grows with enrollment, not with a fixed page size.
-- Any fix had to slot into the existing Django request/response cycle and the project's
-  staging-branch release workflow without destabilizing other features shipping in parallel.
-- The export needed to stay usable for staff doing real reporting work, not just avoid crashing;
-  slow-but-safe wasn't good enough if it timed out under a browser request.
+- The export has to cover an entire cohort or semester of evaluation data in one pass; its size
+  scales with enrollment, not with a fixed page limit.
+- Any change had to fit the existing Django request/response cycle and the staging-branch release
+  workflow without destabilizing features shipping in parallel.
+- It had to stay genuinely usable for staff running real reports, not merely avoid crashing. An
+  export that timed out under a browser request was no better than one that failed.
 
 ## Architecture decision
 
-I replaced the export's "build the full response in memory, then send it" approach with an
-async, streaming implementation: rows are pulled and written out incrementally instead of being
-materialized as one in-memory dataset before the response starts. That decoupled response time and
-memory footprint from dataset size, and let me raise the safe export ceiling to 2.5 million rows
-without changing how staff use the feature.
+The original path built the entire response in memory before sending a byte. I replaced it with an
+async, streaming implementation that pulls and writes rows incrementally, so response time and
+memory footprint no longer scale with dataset size. That raised the safe export ceiling to 2.5
+million rows with no change to how staff use the feature.
 
-In the same engagement, I also shipped superuser impersonation ("Log in as") for support staff,
-with full audit logging on every impersonated session, a separate but related piece of
-infrastructure work that gives support a safe way to debug on a student's behalf without losing
-traceability.
+Alongside it, I shipped superuser impersonation ("Log in as") for support staff, with full audit
+logging on every session, so support can act in a student's context without losing traceability.
 
 ## Outcome
 
-The streaming export now handles datasets up to 2.5M rows that the previous in-memory approach
-couldn't reliably serve, and it shipped without disrupting the parallel feature stream. The
-impersonation feature gives support staff a traceable way to debug on a student's behalf, with
-every session captured in the audit log. Both are part of the ongoing feature ownership I've taken
-on for elearn since moving off frontend-only work.
+The streaming export now serves datasets up to 2.5 million rows that the in-memory version couldn't
+reliably handle, and it landed without disrupting the parallel feature stream. Impersonation gives
+support a fully audited way to debug on a student's behalf. Both came out of the feature ownership I
+took on after moving off frontend-only work.
