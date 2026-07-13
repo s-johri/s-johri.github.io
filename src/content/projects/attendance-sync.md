@@ -35,4 +35,4 @@ without re-deriving it downstream, coordinating the corresponding model changes 
 ## Outcome
 
 The service has processed 1.3 million+ attendance records to date, running daily and feeding
-directly into elearn's attendance and enrolment views for WILP courses.
+directly into elearn's attendance and enrolment views.

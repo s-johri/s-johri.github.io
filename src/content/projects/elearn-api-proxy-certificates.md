@@ -9,8 +9,8 @@ order: 2
 ## Context
 
 elearn-api-proxy is a Go service that generates transcripts, provisional and degree certificates,
-grade sheets, CGPA-conversion certificates, and bonafide certificates for BITS Pilani WILP's
-elearn platform, pulling program, degree, and division data from an ERP student-status API.
+grade sheets, CGPA-conversion certificates, and bonafide certificates for the BITS Pilani
+ecosystem's elearn platform, pulling program, degree, and division data from an ERP student-status API.
 Another engineer laid the initial foundations of the service; I own its ongoing feature
 work, iterating across roughly 68 commits spanning multiple ticket batches.
 

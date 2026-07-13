@@ -8,7 +8,7 @@ order: 1
 
 ## Context
 
-elearn is Code Argo's Django LMS/WILP platform, built for BITS Pilani WILP and still under active
+elearn is Code Argo's Django LMS platform, built for the BITS Pilani ecosystem and still under active
 development after 17+ months. It's the largest and longest-running codebase I work on, and it
 serves roughly 75,000 active students. Another engineer laid the project's
 foundation and still contributes significantly; I owned frontend development end-to-end early in
