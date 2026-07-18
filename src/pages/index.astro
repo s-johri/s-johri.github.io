@@ -8,32 +8,38 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 <Base title="Saurabh Johri">
 	<header>
 		<h1>Saurabh Johri</h1>
-		<p class="muted links">
-			<a href="/resume.pdf">Resume (PDF)</a> &middot;
-			<a href="https://github.com/s-johri">GitHub</a> &middot;
+		<p class="muted tagline">Software engineer. Django &amp; Go on education platforms.</p>
+		<p class="links">
+			<a href="/resume.pdf">Resume (PDF)</a>
+			<a href="https://github.com/s-johri">GitHub</a>
 			<a href="https://linkedin.com/in/saurabh-j-49bb87ba">LinkedIn</a>
 		</p>
 	</header>
 
-	<section id="about" class="reveal">
-		<h2>About</h2>
-		<p>
-			Software engineer with an MS in Artificial Intelligence from Boston University and ~2 years
-			at Code Argo, building education-platform software for the BITS Pilani ecosystem that serves
-			around 180,000 users. Full-stack across Python/Django and Go, spanning student-portal features,
-			certificate-generation microservices, data pipelines, and backend proxies, with an
-			AI-assisted development workflow. I like owning systems end-to-end, from frontend UX down to
-			the Go services underneath, and shipping features that hold up at real scale. Open-source
-			contributor to <a href="https://github.com/signintech/gopdf">gopdf</a>, a ~2,900-star Go PDF
-			library.
-		</p>
+	<section id="about" class="reveal section">
+		<h2 class="section-label">About</h2>
+		<div>
+			<p>
+				Software engineer with an MS in Artificial Intelligence from Boston University and ~2 years
+				at Code Argo, building education-platform software for the BITS Pilani ecosystem that serves
+				around 180,000 users. Full-stack across Python/Django and Go, spanning student-portal features,
+				certificate-generation microservices, data pipelines, and backend proxies, with an
+				AI-assisted development workflow. I like owning systems end-to-end, from frontend UX down to
+				the Go services underneath, and shipping features that hold up at real scale. Open-source
+				contributor to <a href="https://github.com/signintech/gopdf">gopdf</a>, a ~2,900-star Go PDF
+				library.
+			</p>
+		</div>
 	</section>
 
-	<section id="experience" class="reveal">
-		<h2>Experience</h2>
+	<section id="experience" class="reveal section">
+		<h2 class="section-label">Experience</h2>
 		<article>
-			<h3>Software Engineer, Code Argo</h3>
-			<p class="muted"><em>Vendor engineering team for the BITS Pilani ecosystem &middot; Remote &middot; May 2024 &ndash; Present</em></p>
+			<div class="role">
+				<h3>Software Engineer, Code Argo</h3>
+				<span class="dates">May 2024 &ndash; Present</span>
+			</div>
+			<p class="muted org">Vendor engineering team for the BITS Pilani ecosystem &middot; Remote</p>
 			<ul>
 				<li>
 					Lead ongoing feature development on <strong>elearn</strong>, a Django student portal with
@@ -69,13 +75,15 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 		</article>
 	</section>
 
-	<section id="projects" class="reveal">
-		<h2>Projects</h2>
+	<section id="projects" class="reveal section">
+		<h2 class="section-label">Projects</h2>
 		<ul class="project-list">
 			{projects.map((project) => (
 				<li>
-					<a href={`/projects/${project.id}`}>{project.data.title}</a>
-					<span class="badge">{project.data.kind === 'case-study' ? 'Case study' : 'Open source'}</span>
+					<div class="project-title">
+						<a href={`/projects/${project.id}`}>{project.data.title}</a>
+						<span class="badge">{project.data.kind === 'case-study' ? 'Case study' : 'Open source'}</span>
+					</div>
 					<p class="muted">{project.data.summary}</p>
 				</li>
 			))}
@@ -84,18 +92,64 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 </Base>
 
 <style>
+	.tagline {
+		margin: 0 0 1.25rem;
+		font-size: 1.1rem;
+	}
+	.links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.5rem;
+		margin: 0;
+		font-family: var(--mono);
+		font-size: 0.8rem;
+		letter-spacing: 0.02em;
+	}
+	.role {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 0.25rem 1rem;
+	}
+	.role h3 {
+		margin: 0;
+	}
+	.dates {
+		font-family: var(--mono);
+		font-size: 0.75rem;
+		color: var(--muted);
+		white-space: nowrap;
+	}
+	.org {
+		margin: 0.25rem 0 1rem;
+	}
 	.project-list {
 		list-style: none;
 		padding: 0;
+		margin: 0;
 	}
 	.project-list li {
-		margin: 1.25rem 0;
+		margin: 0;
+		padding: 1.1rem 0;
 	}
-	.project-list a {
+	.project-list li + li {
+		border-top: 1px solid var(--border);
+	}
+	.project-list li:first-child {
+		padding-top: 0;
+	}
+	.project-title {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.6rem;
+	}
+	.project-title a {
 		font-weight: 600;
-		margin-right: 0.5rem;
 	}
 	.project-list p {
-		margin: 0.25rem 0 0;
+		margin: 0.35rem 0 0;
+		font-size: 0.95rem;
 	}
 </style>
