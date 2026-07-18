@@ -4,7 +4,7 @@ summary: 'A Discord/Google account-linking gate bot serving a real community of 
 tech: ['Go', 'PostgreSQL', 'Valkey/Redis', 'Discord API']
 kind: 'oss'
 repo: 'https://github.com/s-johri/discord-verify-bot'
-order: 5
+order: 6
 ---
 
 discordbot-go gates access to a Discord server behind a Discord-and-Google account-linking flow,

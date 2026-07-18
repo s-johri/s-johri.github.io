@@ -4,7 +4,7 @@ summary: 'A keyboard-driven terminal UI unifying SSH key management, ssh-agent c
 tech: ['Go', 'GitHub Actions', 'Homebrew']
 kind: 'oss'
 repo: 'https://github.com/s-johri/sshush'
-order: 4
+order: 5
 ---
 
 sshush is a keyboard-driven TUI that brings SSH key management, ssh-agent control, and
