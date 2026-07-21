@@ -1,6 +1,6 @@
 ---
 title: 'attendance-sync: Daily Attendance Ingestion at 1.3M+ Records'
-summary: 'A Go cron service reconciling merged-course meeting attendance from an external API into a Django student portal, with 1.3M+ records processed to date.'
+summary: 'A Go ETL service reconciling merged-course meeting attendance from an external API into a Django student portal, with 1.3M+ records processed to date.'
 tech: ['Go', 'Cron', 'REST APIs']
 kind: 'case-study'
 order: 3
