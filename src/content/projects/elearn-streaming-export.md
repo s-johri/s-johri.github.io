@@ -3,7 +3,7 @@ title: 'elearn: Streaming CSV Export for a 180,000-User Student Portal'
 summary: 'Scaled a Django student-portal export path from an in-memory bottleneck to an async, streaming pipeline handling 2.5M rows, and shipped audited superuser impersonation for support workflows.'
 tech: ['Python', 'Django', 'PostgreSQL', 'JavaScript']
 kind: 'case-study'
-order: 1
+order: 2
 ---
 
 ## Context

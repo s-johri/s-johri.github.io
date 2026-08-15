@@ -11,6 +11,7 @@ export const collections = {
       kind: z.enum(['case-study', 'oss']),
       repo: z.string().url().optional(),
       order: z.number(),
+      featured: z.boolean().optional(),
     }),
   }),
 };

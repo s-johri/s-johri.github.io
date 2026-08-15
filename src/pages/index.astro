@@ -37,7 +37,7 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 				<h3>Software Engineer, Code Argo</h3>
 				<span class="dates">May 2024 &ndash; Present</span>
 			</div>
-			<p class="muted org">Vendor engineering team for the BITS Pilani ecosystem &middot; Remote</p>
+			<p class="muted org">Python/Django and Go engineering for the BITS Pilani ecosystem &middot; Remote</p>
 			<ul>
 				<li>
 					Main engineer for new features on <strong>elearn</strong>, a Django student portal with
@@ -79,10 +79,11 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 		<h2 class="section-label">Projects</h2>
 		<ul class="project-list">
 			{projects.map((project) => (
-				<li>
+				<li class={project.data.featured ? 'featured' : undefined}>
 					<div class="project-title">
 						<a href={`/projects/${project.id}`}>{project.data.title}</a>
 						<span class="badge">{project.data.kind === 'case-study' ? 'Case study' : 'Open source'}</span>
+						{project.data.featured && <span class="badge accent">Merged upstream</span>}
 					</div>
 					<p class="muted">{project.data.summary}</p>
 				</li>
@@ -138,6 +139,21 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 	}
 	.project-list li:first-child {
 		padding-top: 0;
+	}
+	/* the one merged-upstream contribution: a hairline accent rule and a
+	   whisper of surface tint. Enough to notice, not enough to shout. */
+	.project-list li.featured {
+		padding: 1.1rem 0 1.1rem 1rem;
+		margin-left: -1rem;
+		border-left: 2px solid var(--accent);
+		background: linear-gradient(90deg, var(--surface), transparent 70%);
+	}
+	.project-list li.featured:first-child {
+		padding-top: 0.9rem;
+	}
+	.badge.accent {
+		color: var(--accent);
+		border-color: var(--accent);
 	}
 	.project-title {
 		display: flex;

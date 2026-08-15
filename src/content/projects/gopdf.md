@@ -4,7 +4,8 @@ summary: 'Two feature PRs merged into signintech/gopdf (~2,900 stars): full-just
 tech: ['Go', 'PDF internals']
 kind: 'oss'
 repo: 'https://github.com/signintech/gopdf'
-order: 4
+order: 1
+featured: true
 ---
 
 [gopdf](https://github.com/signintech/gopdf) is a ~2,900-star Go library for generating PDFs, and

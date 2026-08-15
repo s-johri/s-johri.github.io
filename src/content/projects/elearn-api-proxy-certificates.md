@@ -3,7 +3,7 @@ title: 'elearn-api-proxy: Certificate & Transcript Generation at Scale'
 summary: 'A dedicated Go service generating transcripts, certificates, and grade sheets for a 180,000-user student portal, with 52,000+ documents generated to date.'
 tech: ['Go', 'REST APIs', 'PDF generation']
 kind: 'case-study'
-order: 2
+order: 3
 ---
 
 ## Context
