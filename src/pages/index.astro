@@ -8,7 +8,7 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 <Base title="Saurabh Johri">
 	<header>
 		<h1>Saurabh Johri</h1>
-		<p class="muted tagline">Full-stack software engineer. Python/Django &amp; Go on education platforms.</p>
+		<p class="muted tagline">Backend software engineer. Python/Django &amp; Go on education platforms.</p>
 		<p class="links">
 			<a href="/resume.pdf">Resume (PDF)</a>
 			<a href="https://github.com/s-johri">GitHub</a>
@@ -20,14 +20,12 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 		<h2 class="section-label">About</h2>
 		<div>
 			<p>
-				Software engineer with an MS in Artificial Intelligence from Boston University and ~2 years
-				at Code Argo, building education-platform software for the BITS Pilani ecosystem that serves
-				around 180,000 users. Backend-leaning full-stack across Python/Django and Go, spanning student-portal features,
-				certificate-generation microservices, data pipelines, and backend proxies, with an
-				AI-assisted development workflow. I like owning systems end-to-end, from frontend UX down to
-				the Go services underneath, and shipping features that hold up at real scale. Open-source
-				contributor to <a href="https://github.com/signintech/gopdf">gopdf</a>, a ~2,900-star Go PDF
-				library, with two feature PRs merged upstream.
+				Django and Go engineer at Code Argo, on the BITS Pilani education platform: a student
+				portal with ~180,000 users and ~75,000 active students. Streaming exports, daily ETL
+				pipelines, certificate microservices, and API proxies in production, with an AI-assisted
+				development workflow. MS in Artificial Intelligence from Boston University. Two feature
+				PRs merged upstream into <a href="https://github.com/signintech/gopdf">gopdf</a>, a
+				~2,900-star Go PDF library.
 			</p>
 		</div>
 	</section>
@@ -42,15 +40,15 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 			<p class="muted org">Vendor engineering team for the BITS Pilani ecosystem &middot; Remote</p>
 			<ul>
 				<li>
-					Lead ongoing feature development on <strong>elearn</strong>, a Django student portal with
+					Main engineer for new features on <strong>elearn</strong>, a Django student portal with
 					<strong>~180,000 total users</strong> (~75,000 active students); owned frontend development
-					end-to-end early in the engagement.
+					early in the engagement.
 				</li>
 				<li>
-					Shipped an async/streaming CSV export for large MGPA and student-evaluation datasets, scaling the export limit to <strong>2.5M rows</strong>.
+					Shipped an async/streaming CSV export for MGPA and student-evaluation datasets, scaling the export limit to <strong>2.5M rows</strong>.
 				</li>
 				<li>
-					Added superuser impersonation (&ldquo;Log in as&rdquo;) with full audit logging.
+					Added superuser impersonation (&ldquo;Log in as&rdquo;) with audit logging.
 				</li>
 				<li>
 					Maintain and extend <strong>elearn-api-proxy</strong> (Go), a certificate/transcript
@@ -64,10 +62,9 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 					<strong>1.3M+ attendance records processed</strong> to date.
 				</li>
 				<li>
-					Developed <strong>discordbot-go</strong>, a Discord/Google account-linking gate bot
-					serving a community of <strong>~250 members</strong>; implemented a
-					reconciliation/self-healing sweep to correct membership drift and migrated identity
-					and cohort-channel storage from local JSON to PostgreSQL, then to Valkey/Redis.
+					Developed <strong>discordbot-go</strong>, a Discord/Google account-linking gate bot for a
+					<strong>~250-member</strong> community, with a self-healing reconciliation sweep that
+					corrects membership drift.
 				</li>
 				<li>
 					Co-built <strong>argo-api-proxy</strong> (Go/Fiber) with API-key request
