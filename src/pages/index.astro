@@ -20,9 +20,9 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 		<h2 class="section-label">About</h2>
 		<div>
 			<p>
-				Django and Go engineer at Code Argo, on the BITS Pilani education platform: a student
-				portal with ~180,000 users and ~75,000 active students. Streaming exports, daily ETL
-				pipelines, certificate microservices, and API proxies in production, with an AI-assisted
+				Django and Go engineer at Code Argo, on the BITS Pilani student portal: ~180,000 users,
+				~75,000 active students. Streaming exports, daily ETL pipelines, certificate
+				microservices, and cross-service access control in production, with an AI-assisted
 				development workflow. MS in Artificial Intelligence from Boston University. Two feature
 				PRs merged upstream into <a href="https://github.com/signintech/gopdf">gopdf</a>, a
 				~2,900-star Go PDF library.
@@ -45,10 +45,13 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 					early in the engagement.
 				</li>
 				<li>
-					Shipped an async/streaming CSV export for MGPA and student-evaluation datasets, scaling the export limit to <strong>2.5M rows</strong>.
+					Built the <strong>Taxila LMS access gate</strong> across two services: a Django gate that
+					checks an external hall-ticket API and mints a signed cross-domain cookie, and the Go
+					nginx <code>auth_request</code> service validating it, with role-based bypass and failure
+					attribution across the two systems.
 				</li>
 				<li>
-					Added superuser impersonation (&ldquo;Log in as&rdquo;) with audit logging.
+					Shipped an async/streaming CSV export for MGPA and student-evaluation datasets, scaling the export limit to <strong>2.5M rows</strong>.
 				</li>
 				<li>
 					Maintain and extend <strong>elearn-api-proxy</strong> (Go), a certificate/transcript
@@ -62,9 +65,9 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 					<strong>1.3M+ attendance records processed</strong> to date.
 				</li>
 				<li>
-					Developed <strong>discordbot-go</strong>, a Discord/Google account-linking gate bot for a
-					<strong>~250-member</strong> community, with a self-healing reconciliation sweep that
-					corrects membership drift.
+					Built permission-gated user impersonation (&ldquo;Log in as&rdquo;) with audit logging,
+					privilege-escalation guards, and Django test coverage, letting support staff reproduce
+					student-reported issues.
 				</li>
 				<li>
 					Co-built <strong>argo-api-proxy</strong> (Go/Fiber) with API-key request

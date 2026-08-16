@@ -1,6 +1,6 @@
 ---
 title: 'elearn: Streaming CSV Export for a 180,000-User Student Portal'
-summary: 'Scaled a Django student-portal export path from an in-memory bottleneck to an async, streaming pipeline handling 2.5M rows, and shipped audited superuser impersonation for support workflows.'
+summary: 'Scaled a Django student-portal export path from an in-memory bottleneck to an async, streaming pipeline handling 2.5M rows, and shipped permission-gated, audited impersonation for support workflows.'
 tech: ['Python', 'Django', 'PostgreSQL', 'JavaScript']
 kind: 'case-study'
 order: 2
@@ -33,12 +33,15 @@ async, streaming implementation that pulls and writes rows incrementally, so res
 memory footprint no longer scale with dataset size. That raised the safe export ceiling to 2.5
 million rows with no change to how staff use the feature.
 
-Alongside it, I shipped superuser impersonation ("Log in as") for support staff, with full audit
-logging on every session, so support can act in a student's context without losing traceability.
+Alongside it, I shipped user impersonation ("Log in as") for support staff, so support can
+reproduce student-reported issues in the student's own context without losing traceability. Every
+session is audit-logged. Access started superuser-only and later widened to anyone holding the
+right permission, with explicit guards against using it to escalate privilege, and the whole path
+is covered by Django tests.
 
 ## Outcome
 
 The streaming export now serves datasets up to 2.5 million rows that the in-memory version couldn't
 reliably handle, and it landed without disrupting the parallel feature stream. Impersonation gives
-support a fully audited way to debug on a student's behalf. Both came out of the feature ownership I
-took on after moving off frontend-only work.
+support an audited, permission-gated way to debug on a student's behalf. Both came out of the
+feature ownership I took on after moving off frontend-only work.
