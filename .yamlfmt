@@ -5,6 +5,14 @@
 gitignore_excludes: true
 exclude:
   - .serena
+  # Temporary exclusion, remove when the upstream bug is fixed.
+  # yamlfmt rewrites a null value in a flow mapping as an empty string, so
+  # "workflow_dispatch:" becomes "workflow_dispatch: ''" in deploy.yml.
+  # That is a different value and the workflow stops being valid. actionlint
+  # reports "workflow_dispatch section is scalar node but mapping node is
+  # expected", and GitHub schedules no jobs at all. See commit 6ffff04 and
+  # run 31968095585 for the failure this caused.
+  - .github/workflows/deploy.yml
 formatter:
   type: basic
   retain_line_breaks: true
