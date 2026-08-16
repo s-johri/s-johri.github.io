@@ -1,0 +1,28 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  # YAML formatting. The settings live in .yamlfmt at the repository root.
+  # The yamlfmt version is pinned so a new release cannot fail the build on
+  # an unrelated change.
+  #
+  # Written in block style on purpose. Flow style triggers the upstream bug
+  # that .yamlfmt documents, where a null value becomes an empty string.
+  yaml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.26'
+
+      - name: Install yamlfmt
+        run: go install github.com/google/yamlfmt/cmd/yamlfmt@v0.21.0
+
+      - name: Verify YAML formatting
+        run: yamlfmt -lint .
