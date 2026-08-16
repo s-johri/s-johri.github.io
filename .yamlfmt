@@ -1,0 +1,11 @@
+# yamlfmt configuration
+#
+# Defaults strip blank lines and collapse the padding before a trailing
+# comment. retain_line_breaks and pad_line_comments keep files as written.
+gitignore_excludes: true
+exclude:
+  - .serena
+formatter:
+  type: basic
+  retain_line_breaks: true
+  pad_line_comments: 2
